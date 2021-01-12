@@ -10,9 +10,28 @@ function writePassword() {
 }
 
 function generatePassword() {
+  // todo: implement this part to get user's input
   function getUserconfirmation() {}
 
-  function generatePasswordWithCriteria() {
+  function generatePasswordWithCriteria(lower, uppoer, number, special) {
+    // loop through criteria list,
+    let criteria = [
+      randomLowerChar,
+      randomUpperChar,
+      randomNumber,
+      randomSpecialChar,
+    ];
+
+    let randomString = "";
+
+    for (let i = 0; i < 39; ++i) {
+      let random = Math.floor(Math.random() * criteria.length);
+      let randomFunction = criteria[random];
+      randomString += randomFunction();
+    }
+
+    return randomString;
+
     // return random lowercase alphabet.
     function randomLowerChar() {
       const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -33,7 +52,7 @@ function generatePassword() {
 
     // return random special character.
     function randomSpecialChar() {
-      const charSet = "a-z A-Z, 0-9, ~!@#$%^&*()|}{}/.,<>?";
+      const charSet = "~!@#$%^&*()|}{}/.,<>?";
       const randomChar = generateRandomFromCharSet(charSet);
 
       return randomChar;
@@ -51,6 +70,9 @@ function generatePassword() {
   // Get user confirmation regarding character types
 
   // With the criterial generating the password
+  let randomString = generatePasswordWithCriteria();
+
+  return randomString;
 }
 
 // Add event listener to generate button
