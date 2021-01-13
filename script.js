@@ -9,16 +9,15 @@ function writePassword() {
   passwordText.value = password;
 }
 
+/**
+ * returns enerated password, and pop up confirmation to set the criteria of the password.
+ */
 function generatePassword() {
-  // possible password sets are a-z A-Z, 0-9, ~!@#$%^&*()|}{}/.,<>?
-
   // Get user confirmation regarding character types
   let passwordCriteria = generateCriteria();
 
   // With the criteria generating the password
   let randomString = generatePasswordWithCriteria(passwordCriteria);
-
-  console.log(randomString);
 
   return randomString;
 
@@ -83,6 +82,11 @@ function generatePassword() {
     }
   }
 
+  /**
+   * returns generated password based on criteria
+   *
+   * @param {length: Number, lowercase: Boolean, uppercase: Boolean, nubmer: Boolean, special: Boolean} passwordCriteria
+   */
   function generatePasswordWithCriteria(passwordCriteria) {
     // extracting length
     const length = passwordCriteria.length;
@@ -106,7 +110,9 @@ function generatePassword() {
 
     return randomString;
 
-    // return random lowercase alphabet.
+    /**
+     * returns a random lowercase alphabet.
+     */
     function randomLowerChar() {
       const alphabet = "abcdefghijklmnopqrstuvwxyz";
       const randomChar = generateRandomFromCharSet(alphabet);
@@ -114,17 +120,23 @@ function generatePassword() {
       return randomChar;
     }
 
-    // return random uppercase alphabet.
+    /**
+     * returns a uppercase alphabet.
+     */
     function randomUpperChar() {
       return randomLowerChar().toUpperCase();
     }
 
-    // return random number.
+    /**
+     * returns a random single digit char number.
+     */
     function randomNumber() {
       return Math.floor(Math.random() * 10).toString();
     }
 
-    // return random special character.
+    /**
+     * returns a special CharacterData.
+     */
     function randomSpecialChar() {
       const charSet = " !\"#$%&'()*+,-./:;<=>?@[]^_`{|}~";
       const randomChar = generateRandomFromCharSet(charSet);
@@ -132,6 +144,11 @@ function generatePassword() {
       return randomChar;
     }
 
+    /**
+     *  Returns a random character from charset
+     *
+     * @param String charSet
+     */
     function generateRandomFromCharSet(charSet) {
       const charArray = charSet.split("");
       const random = Math.floor(Math.random() * charArray.length);
