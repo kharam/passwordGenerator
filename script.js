@@ -14,10 +14,10 @@ function writePassword() {
  */
 function generatePassword() {
   // Get user confirmation regarding character types
-  let passwordCriteria = generateCriteria();
+  const passwordCriteria = generateCriteria();
 
   // With the criteria generating the password
-  let randomString = generatePasswordWithCriteria(passwordCriteria);
+  const randomString = generatePasswordWithCriteria(passwordCriteria);
 
   return randomString;
 
@@ -28,15 +28,13 @@ function generatePassword() {
    */
   function generateCriteria() {
     // Getting the length of password from user
-    let length = getPasswordLength();
+    const length = getPasswordLength();
 
     // Getting the password type.
-    let passwordCriteria = getPasswordCriteria();
+    const passwordCriteria = getPasswordCriteria();
 
     // appending length to the password criteria
     passwordCriteria["length"] = length;
-
-    console.log(passwordCriteria);
 
     // return password criteria
     return passwordCriteria;
@@ -60,10 +58,10 @@ function generatePassword() {
       // Choosing the password critieria from user input
       while (true) {
         // Displaying each criteria
-        let lowercase = confirm("Do you want lowercase");
-        let uppercase = confirm("Do you want upper case");
-        let number = confirm("Do you want number");
-        let special = confirm("Do you want special character");
+        const lowercase = confirm("Do you want lowercase");
+        const uppercase = confirm("Do you want upper case");
+        const number = confirm("Do you want number");
+        const special = confirm("Do you want special character");
 
         // If one of the criteria is true
         if (lowercase || uppercase || number || special) {
